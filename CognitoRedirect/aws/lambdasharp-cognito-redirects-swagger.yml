@@ -1,0 +1,27 @@
+---
+swagger: "2.0"
+info:
+  version: "2017-10-08T21:15:14Z"
+  title: "cognito_redirects"
+basePath: "/stage"
+schemes:
+- "https"
+paths:
+  /callback:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "url"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"

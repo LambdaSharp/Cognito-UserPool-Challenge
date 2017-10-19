@@ -14,6 +14,7 @@
     "function-runtime": "dotnetcore1.0",
     "function-memory-size": 256,
     "function-timeout": 30,
-    "function-handler": "UserPoolTriggers::UserPoolTriggers.Function::FunctionHandler",
-    "function-role": "lambdasharp_cognito_user_pool_triggers_role"
+    "function-handler": "CognitoRedirect::CognitoRedirect.Function::FunctionHandler",
+    "function-role": "lambdasharp_cognito_redirect_role"
+
 }

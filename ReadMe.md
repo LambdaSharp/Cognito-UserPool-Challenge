@@ -85,7 +85,7 @@ Add a domain name prefix to use the sign-up and sign-in pages hosted by Cognito.
 Access the sign-up and sign-in pages hosted by Cognito, by replacing the `<DOMAIN_PREFIX>`, `<REGION>`, and `<CLIENT_ID>` values in the URL below and navigating to it in the browser.
 
 ```
-https://<DOMAIN_PREFIX>.auth.<REGION>.amazoncognito.com/signup?response_type=code&client_id=<CLIENT_ID>&redirect_uri=https://www.google.com
+https://<DOMAIN_PREFIX>.auth.<REGION>.amazoncognito.com/login?response_type=code&client_id=<CLIENT_ID>&redirect_uri=https://www.google.com
 ```
 
 <details>
@@ -185,7 +185,7 @@ Edit `UserPoolTriggers/Triggers/CognitoPreSignup.cs` to:
 * decline sign-ups that DO NOT have a phone number that starts with `619`, `858`, or `760`
 * bypass the verification for sign-ups that have a phone number that starts with `858`
 * no username can be admin
-* only allow emails from a whiteList
+* only allow emails from a whiteList (can be done from UI in lieu of code as well)
 
 Use the `PreSignUpSignUp` test event for debugging.
 

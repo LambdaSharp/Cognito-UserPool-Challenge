@@ -18,19 +18,6 @@ namespace UserPoolTriggers.Models
         [JsonProperty("clientId")]
         public string ClientId { get; set; }
     }
-
-    public class PostConfirmationResponse
-    {
-        [JsonProperty("smsMessage", NullValueHandling = NullValueHandling.Ignore)]
-        public string SmsMessage { get; set; }
-        
-        [JsonProperty("emailMessage", NullValueHandling = NullValueHandling.Ignore)]
-        public string EmailMessage { get; set; }
-        
-        [JsonProperty("emailSubject", NullValueHandling = NullValueHandling.Ignore)]
-        public string EmailSubject { get; set; }
-        
-    }
     
     public class PostConfirmationBase
     {
@@ -53,7 +40,7 @@ namespace UserPoolTriggers.Models
         public PostConfirmationRequest Request { get; set; }
 
         [JsonProperty("response")]
-        public PostConfirmationResponse Response { get; set; }
+        public Dictionary<string, string> Response { get; set; }
         
         [JsonProperty("userName", NullValueHandling = NullValueHandling.Ignore)]
         public string UserName { get; set; }

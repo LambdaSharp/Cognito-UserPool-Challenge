@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- https://github.com/aws/aws-sdk-js/releases 2.4.0 -->
+  <script type="text/javascript" src="dist/aws-sdk.js"></script>
 </head>
 <body>
 <h1>Welcome to Your New S3 Website!</h1>
@@ -17,7 +19,7 @@
         "Photo_by_Caleb_Jones_on_Unsplash.jpg"
     ];
     var randomPhoto = imageList[Math.floor(Math.random() * imageList.length)];
-    document.getElementById('app').innerHTML = '<img style="width:650px;" src="' + albumBucketUrl + 'images/' + randomPhoto + '"/><p>' + randomPhoto + '</p>';
+    document.getElementById('app').innerHTML = '<img style="width:650px;" src="' + albumBucketUrl + 'images/' + randomPhoto + '"/>';
 </script>
 </body>
 </html>

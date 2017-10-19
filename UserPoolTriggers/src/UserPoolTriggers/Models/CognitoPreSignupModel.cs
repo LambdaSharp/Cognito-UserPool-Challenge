@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 
 namespace UserPoolTriggers.Models
 {
-     
     public class PreSignupRequest
     {
         [JsonProperty("userAttributes")]

@@ -39,7 +39,7 @@ namespace UserPoolTriggers.Models
         public string ClientId { get; set; }
     }
 
-    public class CustomMessageBase
+    public class CustomMessageEvent
     {
         [JsonProperty("version")]
         public int Version { get; set; }

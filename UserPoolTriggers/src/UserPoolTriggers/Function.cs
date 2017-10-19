@@ -1,6 +1,3 @@
-using System.IO;
-using System.Reflection;
-using Amazon.Auth.AccessControlPolicy.ActionIdentifiers;
 using Amazon.Lambda.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -41,7 +38,7 @@ namespace UserPoolTriggers
                     // send custom verification code message
                     LambdaLogger.Log("Case CustomMessage_SignUp");
                     var cognitoCustomMessage = new CognitoCustomMessage();
-                    var triggerCustomMessageEvent = cognitoCustomMessage.FunctionHandler(cognitoTriggerEvent.ToObject<CustomMessageBase>());
+                    var triggerCustomMessageEvent = cognitoCustomMessage.FunctionHandler(cognitoTriggerEvent.ToObject<CustomMessageEvent>());
                     return JObject.FromObject(triggerCustomMessageEvent);
                     
                 // Triggers after successful sign in and/or MFA code    
@@ -58,7 +55,9 @@ namespace UserPoolTriggers
                     LambdaLogger.Log($"No custom implementations for: {triggerSource}");
                     break;
             }
+            
             return cognitoTriggerEvent;
         }
+
     }
 }

@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+﻿using Amazon.CognitoIdentityProvider;
 using Amazon.Lambda.Core;
-using Newtonsoft.Json;
 using UserPoolTriggers.Models;
 
 namespace UserPoolTriggers.Triggers
@@ -18,11 +15,13 @@ namespace UserPoolTriggers.Triggers
             _cognitoIdentityProviderClient = new AmazonCognitoIdentityProviderClient();
         }
         
-        public CustomMessageBase FunctionHandler(CustomMessageBase cognitoCustomMessageEvent)
+        public CustomMessageEvent FunctionHandler(CustomMessageEvent cognitoCustomMessageEvent)
         {
             //LEVEL 4 - Add Custom Message Signup Workflow Trigger
             LambdaLogger.Log("LEVEL 4 - Add Custom Message Signup Workflow Trigger");
-
+            cognitoCustomMessageEvent.Response.EmailSubject = $"HELLO there! {cognitoCustomMessageEvent.Request.CodeParameter}";
+            cognitoCustomMessageEvent.Response.EmailMessage = $"{cognitoCustomMessageEvent.UserName}, thank you for signing up! Here is your code {cognitoCustomMessageEvent.Request.CodeParameter}";
+            cognitoCustomMessageEvent.Response.SmsMessage = $"{cognitoCustomMessageEvent.UserName}, thank you for signing up! Here is your code: {cognitoCustomMessageEvent.Request.CodeParameter}";
             return cognitoCustomMessageEvent;
             
         }        
