@@ -185,7 +185,7 @@ Edit `UserPoolTriggers/Triggers/CognitoPreSignup.cs` to:
 * decline sign-ups that DO NOT have a phone number that starts with `619`, `858`, or `760`
 * bypass the verification for sign-ups that have a phone number that starts with `858`
 * no username can be admin
-* only allow emails from a whiteList (can be done from UI in lieu of code as well)
+* only allow emails from a whiteList
 
 Use the `PreSignUpSignUp` test event for debugging.
 
