@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome to Your New S3 Website!</h1>
+<p>Your S3 bucket for <USER_NAME> has been created.</p>
+<p>Have a nice day!</p>
+<div id="app"></div>
+<script type="text/javascript">
+    var albumBucketUrl = "http://<BUCKET_NAME>.s3-website-us-west-2.amazonaws.com/";
+    var imageList = [
+        "Photo_by_Yannis_Papanastasopoulos_on_Unsplash.jpg",
+        "Photo_by_frank_mckenna_on_Unsplash.jpg",
+        "Photo_by_Denys_Nevozhai_on_Unsplash.jpg",
+        "Photo_by_Davies_Designs_on_Unsplash.jpg",
+        "Photo_by_Caleb_Jones_on_Unsplash.jpg"
+    ];
+    var randomPhoto = imageList[Math.floor(Math.random() * imageList.length)];
+    document.getElementById('app').innerHTML = '<img style="width:650px;" src="' + albumBucketUrl + 'images/' + randomPhoto + '"/><p>' + randomPhoto + '</p>';
+</script>
+</body>
+</html>
